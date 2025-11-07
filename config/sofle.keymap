@@ -21,6 +21,7 @@
             compatible = "zmk,behavior-macro";
             label = "CTRL_WIN_LEFT";
             #binding-cells = <0>;
+            #sensor-binding-cells = <0>; /* <-- Add this line */
             bindings = <
                 &macro_press &kp LCTRL
                 &macro_press &kp LGUI
@@ -33,6 +34,7 @@
             compatible = "zmk,behavior-macro";
             label = "CTRL_WIN_RIGHT";
             #binding-cells = <0>;
+            #sensor-binding-cells = <0>; /* <-- Add this line */
             bindings = <
                 &macro_press &kp LCTRL
                 &macro_press &kp LGUI
