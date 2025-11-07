@@ -17,7 +17,7 @@
 
 / {
         behaviors {
-        macro_ctrl_win_left: behavior_macro {
+        macro_ctrl_win_left: behavior_macro_left {
             compatible = "zmk,behavior-macro";
             label = "CTRL_WIN_LEFT";
             #binding-cells = <0>;
@@ -29,7 +29,7 @@
                 &macro_release &kp LCTRL
             >;
         };
-        macro_ctrl_win_right: behavior_macro {
+        macro_ctrl_win_right: behavior_macro_right {
             compatible = "zmk,behavior-macro";
             label = "CTRL_WIN_RIGHT";
             #binding-cells = <0>;
