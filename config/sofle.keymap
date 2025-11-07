@@ -22,7 +22,16 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LGUI>, <&macro_press &kp LCTRL>
-                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LGUI>,<&macro_release &kp LCTRL>
+                ;
+        };
+        wright: wright {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LGUI>, <&macro_press &kp LCTRL>
+                , <&macro_tap &kp RIGHT>
                 , <&macro_release &kp LGUI>,<&macro_release &kp LCTRL>
                 ;
         };
@@ -32,7 +41,7 @@
         rot_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&wleft>, <&wleft>;
+            bindings = <&wleft>, <&wright>;
         };
     };
 
