@@ -75,7 +75,7 @@
                    &kp LGUI  &kp LALT  &kp LCTRL  &mo LOWER  &kp RET          &kp SPACE  &mo RAISE  &kp RCTRL  &kp RALT   &kp MINUS
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp &macro_ctrl_win_left &macro_ctrl_win_right>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &macro_ctrl_win_left &macro_ctrl_win_right>;
         };
 
         lower_layer {
