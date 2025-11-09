@@ -15,52 +15,6 @@
 #define RAISE 2
 #define ADJUST 3
 
-#define MOUSE_KEYS 4
-#define MOUSE_TP 5
-#define MOUSE_TP_SET 6
-
-/*
- * Defines to enable/disable features
- *
- * These defines allow us to conditionally enable and disable parts of the keymap config.
- *
- * For example, if we decide to build the firmware without the mouse features, we can
- * disable all the config options that rely on those forks and modules without having
- * to edit the entire keymap file manually every time.
- */
-
-#define HAS_MOUSE_KEYS
-#define HAS_MOUSE_TP
-
-#ifdef HAS_MOUSE_KEYS
-  #include <dt-bindings/zmk/mouse.h>
-  #include <behaviors/mouse_keys.dtsi>
-#endif  // HAS_MOUSE_KEYS
-
-#ifdef HAS_MOUSE_TP
-  // We store the trackpoint settings in a separate file
-  // to make organization a little easier.
-  #include "include/mouse_tp.dtsi"
-#endif  // HAS_MOUSE_TP
-
-
-
-// Adjust layer keys based on enabled features.
-//
-// This prevents build errors when we build the firmware
-// without the mouse keys PR or the TP module.
-#ifdef HAS_MOUSE_KEYS
-  #define U_THUMB_INNER &mo MOUSE_KEYS
-#else
-  #define U_THUMB_INNER &none
-#endif  // HAS_MOUSE_KEYS
-
-#ifdef HAS_MOUSE_TP
-  #define U_TOG_TP_SET &tog MOUSE_TP_SET
-#else
-  #define U_TOG_TP_SET &none
-#endif  // HAS_MOUSE_TP
-
 / {
     macros {
         wleft: wleft {
@@ -138,7 +92,7 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&studio_unlock     &kp F1     &kp F2     &kp F3       &kp F4    &kp F5                       &kp F6     &kp F7    &kp F8           &kp F9     &kp F10   &kp F11
+&trans     &kp F1     &kp F2     &kp F3       &kp F4    &kp F5                       &kp F6     &kp F7    &kp F8           &kp F9     &kp F10   &kp F11
 &kp GRAVE  &kp N1     &kp N2     &kp N3       &kp N4    &kp N5                       &kp N6     &kp N7    &kp N8           &kp N9     &kp N0    &kp F12
 &trans     &kp EXCL   &kp AT     &kp HASH     &kp DLLR  &kp PRCNT                    &kp CARET  &kp AMPS  &kp KP_MULTIPLY  &kp LPAR   &kp RPAR  &kp PIPE
 &trans     &kp EQUAL  &kp MINUS  &kp KP_PLUS  &kp LBRC  &kp RBRC   &trans    &trans  &kp LBKT   &kp RBKT  &kp SEMI         &kp COLON  &kp BSLH  &trans
